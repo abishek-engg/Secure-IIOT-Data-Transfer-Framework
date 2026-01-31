@@ -10,11 +10,11 @@ jobs:
         environment: production
 
         steps:
-            - name: Checkout branch
-              uses: actions/checkout@v4
-
             - name: Change permissions
               run: sudo chmod -R 777 ./
+
+            - name: Checkout branch
+              uses: actions/checkout@v4
 
             - name: Copy .env file to server
               run: |
