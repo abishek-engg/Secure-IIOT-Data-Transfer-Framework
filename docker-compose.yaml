@@ -14,7 +14,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./data/mongo:/data/db
+      - iiot_data:/data/db
     environment:
       MONGO_INITDB_DATABASE: mqtt
     networks:
@@ -51,3 +51,6 @@ services:
     networks:
       iiot-net:
         ipv4_address: 172.30.0.30
+
+volumes:
+  iiot_data:
