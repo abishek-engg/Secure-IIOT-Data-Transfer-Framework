@@ -9,7 +9,7 @@ const mqttConnectionOptions = {
 const client = mqtt.connect(process.env.MQTT_URL, mqttConnectionOptions);
 
 client.on("connect", () => {
-  console.log("connected");
+  console.log("MQTT broker connected");
   client.subscribe("#");
 });
 

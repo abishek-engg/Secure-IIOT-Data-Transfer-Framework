@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
 const userRepository = require("../repository/user.repository")
-console.log(userRepository)
 
 const SALT_ROUNDS = 10;
 

@@ -67,7 +67,6 @@ class DeviceService {
     }
 
     // 🔐 ownership check
-    console.log(device, user);
     if (device.owner.toString() !== user.id.toString()) {
       throw new Error("Unauthorized");
     }
@@ -93,17 +92,9 @@ class DeviceService {
       password: apiKey,
       clientId: deviceId,
     };
-    console.log(mqttConnectionOptions);
     const client = mqtt.connect(process.env.MQTT_URL, mqttConnectionOptions);
     client.on("connect", () => {
-      console.log("Connected as", deviceId);
-
-      // 👢 This connection kicks the device
       client.end(true); // disconnect immediately
-      console.log(client.connected);
-    });
-    client.on("close", () => {
-      console.log("🔌 MQTT connection closed");
     });
     // client.end(true);
   }
